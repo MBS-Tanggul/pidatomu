@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #0a0a0a;
+  --color-bg: #fffcf2;
+  --color-card: #ffffff;
+  --color-accent: #ffd400;
+  --color-accent-2: #b4f461;
+  --color-danger: #ff5470;
+  --border-w: 3px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Signature element: kartu dengan border tebal + hard shadow (bukan blur),
+   dan efek "tertekan" saat hover/klik -- ciri khas neo-brutalism. */
+.brutal-card {
+  background: var(--color-card);
+  border: var(--border-w) solid var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-ink);
+  border-radius: 0;
+}
+
+.brutal-btn {
+  border: var(--border-w) solid var(--color-ink);
+  box-shadow: 5px 5px 0 var(--color-ink);
+  background: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  border-radius: 0;
+}
+
+.brutal-btn:hover:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+
+.brutal-btn:active:not(:disabled) {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+
+.brutal-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.brutal-input {
+  border: var(--border-w) solid var(--color-ink);
+  border-radius: 0;
+  background: #fff;
+}
+
+.brutal-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.brutal-badge {
+  border: var(--border-w) solid var(--color-ink);
+  background: var(--color-accent-2);
+  transform: rotate(-3deg);
+  font-weight: 700;
+  border-radius: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
